@@ -3,8 +3,7 @@ import { type Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
 
 import { api } from "../utils/api";
-
-import "../styles/globals.css";
+import { GlobalStyles } from "../styles/globals";
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
@@ -12,6 +11,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
 }) => {
   return (
     <SessionProvider session={session}>
+      <GlobalStyles />
       <Component {...pageProps} />
     </SessionProvider>
   );
